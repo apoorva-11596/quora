@@ -1,0 +1,83 @@
+<div id="pic_edit">
+<div id="profile_pic">
+    <%= image_tag user_image_url(@user),class: "avatar"%>
+</div>
+<div id="name">
+    <span><%= @user.name %></span>
+    <div>
+    <div class="chip" style="background-color:  #3e2723;">
+        <p style="color:white;"> Following: <%=@user.followees.count%> </p>
+    </div>
+    <div class="chip" style="background-color:  #3e2723;">
+        <p style="color:white;">Followers : <%=@user.followers.count%></p>
+    </div>
+    <a href="#modal1" class="waves-effect waves-light btn-floating btn-medium brown darken-4"><i class="material-icons">mode_edit</i></a>
+    </div>
+</div>
+</div>
+
+
+
+
+<div class="container" style="margin-top: 100px;">
+
+<div class="row">
+        <div class="col s6 m6">
+          <div class="card brown darken-2" style="height: 250px;">
+            <div class="card-content white-text">
+              <span class="card-title">Description</span>
+              <div style="background-color:white;height:1px;margin-bottom: 5px;"></div>
+              <div id="card_text">
+              <% if @user.description == "" || @user.description.nil? %>
+                  <div id="description"><i class="tiny material-icons">mode_edit</i>
+                  <p>ADD DESCRIPTION</p></div>
+              <% else %>
+                  <p><%=@user.description%></p>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s6 m6">
+          <div class="card brown darken-2" style="height: 250px;">
+            <div class="card-content white-text" style="display:flex; flex-direction:column; align-items:center;">
+              <div style="display: flex;">
+              <span class="card-title">Questions : <%=questions_asked(@user).count%></span>&nbsp;&nbsp;<span class="card-title">Answers : <%=answers_given(@user).count%></span>
+              </div>
+              <div style="background-color:white;height:1px;margin-bottom: 5px;"></div>
+              <div style="background-color:white;height:1px;margin-bottom: 5px;"></div>
+              <div>
+                  <% if user_signed_in? &&  @user.id != current_user.id %>
+                      <%= form_for(@user, :url => "/users/follow" )do|f|%>
+                          <%=  hidden_field_tag 'profile_id', @user.id %>
+                          <% if user_following @user %>
+                              <%= f.submit "Unfollow" %>
+                          <%else%>
+                              <%= f.submit "Follow" %>
+                          <%end%>
+                      <%end%>
+                   <%end%>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+
+
+</div>
+
+<a href="#modal1">Edit Profile</a>
+
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <%= render 'form' %>
+  </div>
+</div>
+
+<script>
+   $(document).ready(function(){
+    $('.modal').modal();
+
+  })
+</script>

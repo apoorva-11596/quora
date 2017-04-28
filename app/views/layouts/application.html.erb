@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quora</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  <%= csrf_meta_tags %>
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          
+</head>
+<body>
+
+<% if not notice.nil? or not alert.nil? %>
+    <div id="alert"><p id="notice" style="color :#a16e4b ;  "  ><%=notice %></p>
+      <p id="alert" style=" color : #a16e4b ; "><%=alert %></p>
+    </div>
+<% end %>
+
+<div class="navbar">
+  <nav>
+    <div class="nav-wrapper" style="margin: 0px 70px 0px 70px;">
+      <a href="/" class="brand-logo">Quora</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-list-ul" aria-hidden="true" style="font-size: 35px;"></i></a>
+      <ul id="head_nav" class="right hide-on-med-and-down">
+        <li><a href="/questions/new">Ask <i class="fa fa-question" aria-hidden="true""></i></a></li>
+        <li><a href="/"><i class="fa fa-newspaper-o" aria-hidden="true""></i> Answer</a></li>
+        <% if user_signed_in? %>
+            <li>
+              <div class='dropdown-button btn' data-activates='dropdown1' style="max-width : 180px;">Hi <%=current_user.name %></div>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content'>
+                <li><%= link_to "Profile", user_profile_path(current_user.id)%></li>
+                <li class="divider"></li>
+                <li><%= link_to "SignOut", destroy_user_session_path, method: "Delete"%></li>
+              </ul>
+            </li>
+        <% else %>
+            <li><%= link_to "LogIn", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <% end%>
+        </li>
+        <!--<li>
+          <nav>
+            <div class="nav-wrapper">
+              <form action="/questions/search" method="get">
+                <div class="input-field">
+                  <input id="search" name="query" type="search" required>
+                  <label for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
+              </form>
+            </div>
+          </nav>
+        </li>
+      </ul>-->
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/questions/new"">Ask Question</a></li>
+        <% if user_signed_in? %>
+            <li style="color: black;">
+              <%= link_to "Hello "+current_user.name, '#'%>
+            </li>
+            <li style="color: black;">
+              <%= link_to "Profile", user_profile_path(current_user.id)%>
+            </li>
+            <li>
+              <%= link_to "SignOut", destroy_user_session_path, method: "Delete"%>
+            </li>
+        <% else %>
+            <li>
+              <%= link_to "LogIn", new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to "Sign Up", new_user_registration_path %>
+            </li>
+        <% end %>
+        <li>
+          <nav>
+            <div class="nav-wrapper">
+              <form action="/questions/search" method="get">
+                <div class="input-field">
+                  <input id="search" name="query" type="search" required>
+                  <label for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
+              </form>
+            </div>
+          </nav>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+
+<div style="padding-top: 50px; padding-bottom: 120px;">
+  <%= yield %>
+</div>
+
+ <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">About Us</h5>
+                <p class="grey-text text-lighten-4">We are a team of college students working on this project.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Developed By</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/apoorva.smartgirl">Apoorva Sharma</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/apurvavrupa">Apurva Singh</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/IshaShiwach">Isha</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2017 Quora
+            </div>
+          </div>
+        </footer>
+
+<script>
+  $(document).ready(function(){
+    $(".button-collapse").sideNav();
+    $("#alert").delay(4000).slideUp('slow');
+    $('.dropdown-button').dropdown({
+      inDuration: 400,
+      outDuration: 600,
+      constrain_width: true, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+        }
+    );
+    })
+  <% if not pop.nil? %>
+  alert("<%= pop %>")
+  <%end%>
+</script>
+</body>
+</html>

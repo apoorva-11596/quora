@@ -1,0 +1,41 @@
+<%= form_for(@user, url: "/users/#{@user.id}/edit") do |f| %>
+    <div class="row">
+    <div class="input-field col s6">
+    <p>
+      <%= f.label "Name" %>
+      <%= f.text_field :name %>
+    </p>
+    </div>
+    <div class="input-field col s6">
+    <p>
+      <%= f.label "Contact Number" %>
+      <%= f.text_field :number %>
+    </p>
+    </div>
+    </div>
+
+    <div class = "row">
+    <div class="iput-field col s12">
+    <p>
+      <%= f.label "description" %>
+    <%= f.text_field :description %>
+    </p>
+    </div>      
+    </div>
+
+    <p>
+      <%= f.hidden_field :id %>
+    </p>
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <%= f.file_field :avatar%>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+
+    <p class="btn waves-effect waves-light"><%= f.submit "Update Profile"%></p>
+
+<% end %>

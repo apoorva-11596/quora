@@ -1,0 +1,11 @@
+<div class="card z-depth-3">
+	<div class="card-content brown darken-1">
+       <span class="card-title"><%= link_to "Q: "+question.text, question, id: "ques" %></span>
+    </div>
+    <div class="card-action text">
+       <i class="tiny material-icons">mode_edit</i><%= question.user.name %>
+       <span style="display:inline-block; width: 20px;"></span>
+       <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp;<%= question.answers.count %>
+    </div>
+</div>
+

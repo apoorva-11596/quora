@@ -1,0 +1,137 @@
+@import "materialize/components/color";
+$primary-color: color("brown","darken-3") !default;
+$secondary-color: color("brown", "darken-1") !default;
+@import 'materialize';
+@import "materialize/extras/nouislider";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+ 
+#pic_edit{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    #profile_pic{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    height: 150px;
+    img{
+        height: 150px;
+        width:auto;
+        border: 0px solid red;
+        border-radius: 50%;
+    }
+    }
+
+    #name{
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+        span{
+            font-size: 40px;
+            color: #3e2723;
+            font-weight: bold;
+        }
+
+        div{
+        p{
+         margin-top: 2px;
+        }
+        }
+    }
+}
+
+
+
+#ques
+{
+    color:white;
+}
+
+#ques:hover{
+    color:white;
+    font-size: 30px;
+
+}
+
+#card_text{
+    padding-top: 10px;
+    text-indent: 30px;
+    line-height: 30px;
+}
+
+#description{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    margin-top: 20px;
+
+    i{
+    font-size: 50px;
+    }
+
+    p{
+        font-size: 20px;
+    }
+}
+
+.user{
+    color:#3e2723 ;
+}
+#alert
+{
+    height: 40px;
+    overflow: hidden;
+    background-color: white;
+}
+.add_def_color
+{
+    backgound-color: rgb(238, 110, 115) !important;
+}
+nav nav
+{
+    box-shadow : none !important;
+}
+#head_nav>li{
+    margin-right: 10px;
+}
+
+#image{
+	height: 200px;
+}
+
+
+#img{
+	width:175px;
+	height: 100%;
+}
+
+.text{
+	color:#5d4037;
+}
+
+#root{
+    margin: 0 30px 0 30px ;
+    display:flex;
+    justify-content: space-around;
+}
+
+#side{
+    width: 10%;
+}
+
+#first{
+    max-width: 1000px;
+    width: 65%;
+    padding-right: 20px;
+}
+
+#vertical_line
+{
+    background-color: #795548;
+    width: 0.25%;
+}
+
+#second{
+    width: 20%;
+}
