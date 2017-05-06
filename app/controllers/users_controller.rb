@@ -14,6 +14,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def root
+    render :layout => 'root'
+  end
 
   def upvote
     u = current_user

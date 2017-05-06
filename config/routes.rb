@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   post 'users/upvote/:id' => 'users#upvote' , as: 'upvote_answer'
   
-  root 'questions#index'
+  root 'users#root'
   
   get '/questions/search' => 'questions#search' , as: 'search_question'
 
