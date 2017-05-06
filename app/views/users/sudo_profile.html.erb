@@ -50,13 +50,13 @@
 <li><a href="/users/<%=@user.id%>/ques">Questions : <%=questions_asked(@user).count%></a></li>
 </ul></div>
 
-<div id="target1">
-    <section id="userans">
-        <% answers_given(@user).each do |answer|%>
-              <%= render 'answers', :answer => answer %>
-              <div id="horizontal_line"></div>   
-        <% end %>      
-    </section>
+<div id="target2">
+      <section id="userques">
+        <% questions_asked(@user).each do |question|%>
+          <%= render 'questions', :question => question %> 
+          <div id="horizontal_line"></div>
+        <% end %>
+      </section>
 </div>
 
 </div>

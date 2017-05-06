@@ -1,20 +1,28 @@
- <div class="answer">
- 	<div>
- 		<p style="font-size: 23px;">A: <%= answer.text%></p>
+ <div class="answer-card">
+ 	
+ 	<div id="v">
+ 		<%= image_tag user_image_url(answer.user),class: "avatar pic circle"%>
+ 		<p><%=answer.user.name%><br>Uploaded on <%=answer.user.created_at%></p>
  	</div>
  	<div>
- 		<p style="padding-left:20px;">Author: <%= answer.user.name %></p>
+ 		<p style="font-size: 20px;"><%= answer.text%></p>
+ 	</div>
+ 	<div>
  		<div>
  			<% if user_signed_in? %>
  				<%= form_for(@answer, :url => "/users/upvote/#{answer.id}" )do|f|%>
  					<% if user_voted(answer) %>
-  						<%= f.submit "Downvote" %>
+  						<div class="waves-effect waves-light btn action">
+  						<i class="material-icons left">thumb_down</i><%= f.submit "Downvote" %>| <%=answer.votes%>
+  						</div>
   					<%else%> 
- 						<%= f.submit "Upvote" %>
+  						<div class="waves-effect waves-light btn action">
+  						<i class="material-icons left">thumb_up</i><%= f.submit "Upvote" %>| <%=answer.votes%>
+  						</div>
   					<%end%>
  				<%end%>
  			<%end%>
- 			Votes: <%=answer.votes%>
+ 			
  		</div>
 	</div>
  </div>

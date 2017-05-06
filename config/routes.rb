@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get '/questions/search' => 'questions#search' , as: 'search_question'
 
   devise_for :users
-  resources :questions
   resources :questions do 
     member do
       post 'answer'
@@ -17,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
   get 'users/:id' => 'users#profile' , as: 'user_profile'
+  get 'users/:id/ques' => 'users#sudo_profile' , as: 'user_sudoprofile'
 
   patch 'users/:id/edit' => 'users#save_profile'
   patch 'users/follow' => 'users#follow', as: 'users_follow'

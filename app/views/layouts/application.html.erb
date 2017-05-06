@@ -18,12 +18,11 @@
 
 <div class="navbar">
   <nav>
-    <div class="nav-wrapper" style="margin: 0px 70px 0px 70px;">
+    <div class="nav-wrapper" style="margin: 0px 90px 0px 90px;">
       <a href="/" class="brand-logo">Quora</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-list-ul" aria-hidden="true" style="font-size: 35px;"></i></a>
       <ul id="head_nav" class="right hide-on-med-and-down">
         <li><a href="/questions/new">Ask <i class="fa fa-question" aria-hidden="true""></i></a></li>
-        <li><a href="/"><i class="fa fa-newspaper-o" aria-hidden="true""></i> Answer</a></li>
         <% if user_signed_in? %>
             <li>
               <div class='dropdown-button btn' data-activates='dropdown1' style="max-width : 180px;">Hi <%=current_user.name %></div>
@@ -97,7 +96,7 @@
   <%= yield %>
 </div>
 
- <footer class="page-footer">
+ <footer class="page-footer" style="margin-bottom: 0;">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -119,7 +118,7 @@
             © 2017 Quora
             </div>
           </div>
-        </footer>
+</footer>
 
 <script>
   $(document).ready(function(){

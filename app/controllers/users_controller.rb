@@ -7,6 +7,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def sudo_profile
+    @user = User.find_by_id(params[:id])
+    if @user.nil?
+      redirect_to root_path
+    end
+  end
+
+
   def upvote
     u = current_user
     a = Answer.find(params[:id])

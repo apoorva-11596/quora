@@ -25,6 +25,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @answer = Answer.new
+    @user= current_user
   end
 
   # GET /questions/new
