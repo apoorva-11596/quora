@@ -1,25 +1,22 @@
 <body id="indeximage">
-<div id="root">
+<div id="root1">
 
 <div class="row" >
         <div class="col s12 m6" >
-          <div class="card brown darken-4"  id="sidelinks" >
+          <div class="card brown darken-3"  id="sidelinks" >
           <div class="card-content white-text">
-            <span class="card-title" id ="title">QUORA</span> 
-            <div id="hori"> </div>             
+            <span class="card-title" id ="title">QandA</span>
+            <p style="font-size: 17px;text-align:center;margin-top:20px;">(A place to share knowledge and better understand the world.)</p>
             <div id="linkswrap">
                 <div id="sleek">
-                    <br>
-                    <p>A place to share knowledge and better understand the world. Confused? Ask the world! Get all your querries answered from people worldwide.</p>
+                   <p style="margin-top: 50px;">Confused? Ask the world! Get all your querries answered from people worldwide.</p>
                 </div>
                 <div id="verti">
                 </div>
                 <div  id="links">
-                    <br>
-                    <%= link_to "LogIn", new_user_session_path %>
-                    <br>
-                    <br>
-                    <%= link_to "Sign Up", new_user_registration_path %>
+                    <%= link_to "LogIn", new_user_session_path,class: "login"%>
+                    <p style="font-size: 40px;">OR</p>
+                    <%= link_to "Sign Up", new_user_registration_path, class: "signup"%>
                 </div>
             </div>
           </div>
